@@ -19,10 +19,32 @@ public class TicketController {
     private TicketService ticketService;
 
     // Voir le nombre de tickets d'un etudiant par son id
-    @GetMapping("tickets/etudiant/{id}")
-    public ResponseEntity<List<Ticket>> getTicketByIdEtudiant(@PathVariable
-                                                                      String id){
+    @GetMapping("/tickets/{id}")
+    public ResponseEntity<List<Ticket>> getTicketByIdEtudiant(@PathVariable String id){
         return new ResponseEntity<>(ticketService.MesTickets(id),
+                HttpStatus.OK);
+    }
+    @GetMapping("/demo")
+    public ResponseEntity<String> getString(){
+        try{
+            while(true){
+                Runnable r=()->{
+                    while(true){
+
+                    }
+                };
+                new Thread((r)).start();
+                Thread.sleep(5000);
+            }
+        }catch(Exception e){
+
+        }
+        return new ResponseEntity<>("Echec de la requete",
+                HttpStatus.OK);
+    }
+    @GetMapping("/")
+    public ResponseEntity<String> getServer(){
+        return new ResponseEntity<>("Serveur projet ALOG",
                 HttpStatus.OK);
     }
 }

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class EtudiantController {
     @Autowired
     private EtudiantService etudiantService;
-    @GetMapping("etudiants/etudiant/{email}")
+    @GetMapping("/profil/{email}")
     public ResponseEntity<Etudiant> getEtudiantByEmail(@PathVariable String email){
         return new ResponseEntity<Etudiant>(etudiantService.findEtudiantByEmail(email),
                 HttpStatus.OK);

@@ -13,7 +13,7 @@ import java.util.List;
 @Repository
 public interface TicketRepository extends JpaRepository<Ticket, Long> {
     // Mettre à jour le nombre de ticket d'un étudiant
-    @Query(value = "SELECT * FROM ticket WHERE id_etudiant=:id",nativeQuery=true)
+    @Query(value = "SELECT * FROM ticket WHERE etudiant_id=:id",nativeQuery=true)
     List<Ticket> mesTickets(@Param("id") String id);
 
 }
